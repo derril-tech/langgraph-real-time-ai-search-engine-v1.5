@@ -1,7 +1,7 @@
 # 🔍 Real-Time AI Search Engine
 **Powered by LangGraph + OpenAI + RAG**
 
-🌐 **[View Live Application](https://langgraph-real-time-ai-search-engin-three.vercel.app/)**
+🌐 **[View Live Application](https://langgraph-real-time-ai-search-engin.vercel.app/)**
 
 > **Ask anything. Get a cited answer—fast.** A production-grade, Perplexity-style research assistant that combines real-time web retrieval, intelligent source ranking, and streaming AI synthesis with inline citations. ⚡
 
@@ -46,8 +46,9 @@ All delivered through a **streaming UI** that feels instant and responsive, with
 - **Related Searches** — Discover related queries automatically
 
 ### 📊 **Search Intelligence**
-- **Search History** — View and revisit past searches with AI-generated tags
-- **Search Collections** — Organize searches into custom collections
+- **Search History** — View and revisit past searches with AI-generated tags and filters
+- **Search Collections** — Organize searches into custom collections with full CRUD operations
+- **Collection Management** — Create, view, and delete collections with confirmation dialogs
 - **Multi-Query Comparison** — Side-by-side comparison of multiple search results
 - **Search Analytics** — Usage patterns, popular topics, and search insights
 - **Export & Share** — Export answers as Markdown/Text or generate shareable links
@@ -56,9 +57,11 @@ All delivered through a **streaming UI** that feels instant and responsive, with
 - **Streaming UI** — Smooth, real-time answer rendering with no page reloads
 - **Perplexity-Like Interface** — Clean, focused design optimized for research
 - **Dark/Light Mode** — Beautiful theme system with system preference support
-- **Mobile-First** — Responsive design with 44px+ touch targets (WCAG compliant)
-- **Keyboard Shortcuts** — Power user features for faster navigation
+- **Mobile-First** — Fully responsive design with 44px+ touch targets (WCAG compliant)
+- **Tablet Optimized** — Optimized layouts and interactions for tablet devices
+- **Keyboard Shortcuts** — Power user features for faster navigation (`/`, `Ctrl+K`, `Esc`, `?`)
 - **Accessibility** — ARIA labels, focus management, keyboard navigation
+- **Loading States** — Animated progress indicators and status messages for better UX
 
 ### 🔧 **Advanced Features**
 | Feature | Description |
@@ -66,14 +69,16 @@ All delivered through a **streaming UI** that feels instant and responsive, with
 | 🔍 **Streaming Search** | Real-time answer streaming with citations |
 | 📚 **Source Panel** | Ranked sources with credibility scores |
 | 💬 **AI Chat** | Context-aware follow-up conversations |
-| 🎯 **Search Suggestions** | AI-generated query suggestions |
+| 🎯 **Search Suggestions** | AI-generated query suggestions as you type |
 | 🏷️ **AI Tagging** | Automatic search categorization |
 | 📊 **Analytics Dashboard** | Search patterns and insights |
-| 📦 **Collections** | Organize searches into collections |
+| 📦 **Collections** | Create, view, and delete collections |
+| 🗑️ **Collection Management** | Full CRUD with confirmation dialogs |
 | 🔄 **Multi-Query Compare** | Side-by-side result comparison |
 | 📤 **Export & Share** | Markdown/Text export and shareable links |
-| ⌨️ **Keyboard Shortcuts** | Power user navigation |
-| 🔗 **Related Searches** | Discover related topics |
+| ⌨️ **Keyboard Shortcuts** | Power user navigation (`/`, `Ctrl+K`, `Esc`, `?`) |
+| 🔗 **Related Searches** | Discover related topics (mobile-optimized) |
+| 📱 **Mobile Optimized** | Responsive design with touch-friendly UI |
 
 ---
 
@@ -118,6 +123,44 @@ All delivered through a **streaming UI** that feels instant and responsive, with
 | **Railway** | Backend API deployment |
 
 ---
+
+## 🔄 How It Works
+
+### RAG Pipeline Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    USER QUERY                                │
+│         "What is React Server Components?"                   │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────────────────┐
+│              RETRIEVAL ORCHESTRATION                        │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
+│  │   Web        │  │   Source     │  │   Source     │      │
+│  │   Search     │──│   Fetching   │──│   Ranking    │      │
+│  │  (Serper/    │  │  (HTTP +     │  │  (Heuristics │      │
+│  │   Brave)     │  │   Extract)   │  │   + Domain)  │      │
+│  └──────────────┘  └──────────────┘  └──────┬───────┘      │
+│                                             │               │
+│                                    ┌────────▼────────┐      │
+│                                    │   RAG          │      │
+│                                    │   Synthesis    │      │
+│                                    │  (OpenAI +     │      │
+│                                    │   Citations)   │      │
+│                                    └────────┬────────┘      │
+└─────────────────────────────────────────────┼───────────────┘
+                                              │
+                                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│              STREAMING RESPONSE                             │
+│  • Answer with inline citations [1], [2]                   │
+│  • Ranked source list with credibility scores               │
+│  • Follow-up question suggestions                           │
+│  • Related search recommendations                           │
+└─────────────────────────────────────────────────────────────┘
+```
 
 ### Detailed Flow
 
@@ -168,19 +211,24 @@ All delivered through a **streaming UI** that feels instant and responsive, with
 | **Answer** | Comprehensive answer with inline citations [1], [2] |
 | **Sources Panel** | Ranked sources with credibility scores and domain info |
 | **Follow-up Questions** | AI-generated questions to explore the topic deeper |
-| **Related Searches** | Discover related queries automatically |
-| **Search History** | View past searches with AI-generated tags |
-| **Collections** | Organize searches into custom collections |
+| **Related Searches** | Discover related queries automatically (mobile-optimized) |
+| **Search History** | View past searches with AI-generated tags and filters |
+| **Collections** | Create, view, and manage custom collections |
+| **Collection Items** | View all searches saved in a collection |
 
 ### Pro Tips
 
 - **Be specific** with your questions for better results
-- **Use citations** to verify claims by clicking source numbers
+- **Use citations** to verify claims by clicking citation badges in the answer
 - **Explore follow-ups** to dive deeper into topics
 - **Create collections** to organize research by topic
+- **Delete collections** when no longer needed (with confirmation)
 - **Use keyboard shortcuts** for faster navigation (press `?` for help)
+- **Filter search history** by tags or search terms
+- **Export answers** to save or share your research
 
 ---
+
 
 ## 📊 Performance & Architecture
 
@@ -192,7 +240,9 @@ All delivered through a **streaming UI** that feels instant and responsive, with
 | **Source Retrieval** | ~2-5 seconds (cached) |
 | **Frontend Bundle** | Optimized with Next.js 16 |
 | **Mobile Ready** | ✅ WCAG compliant, 44px+ touch targets |
+| **Tablet Optimized** | ✅ Responsive layouts and interactions |
 | **Lighthouse Score** | 90+ |
+| **Loading Feedback** | ✅ Animated progress indicators |
 
 ### Architecture Highlights
 
@@ -231,6 +281,17 @@ All delivered through a **streaming UI** that feels instant and responsive, with
 
 ---
 
+## 📚 Documentation
+
+- **[ENV_VARIABLES.md](ENV_VARIABLES.md)** — Complete environment variable reference
+- **[RAILWAY_ENV_VARIABLES.md](RAILWAY_ENV_VARIABLES.md)** — Railway deployment environment variables
+- **[PRODUCTION_TESTING_GUIDE.md](PRODUCTION_TESTING_GUIDE.md)** — Comprehensive production testing checklist
+- **[LLM_PROMPT_IMPROVEMENTS.md](LLM_PROMPT_IMPROVEMENTS.md)** — Prompt engineering details
+- **[DEPLOYMENT_SYNC_EXPLANATION.md](DEPLOYMENT_SYNC_EXPLANATION.md)** — Vercel/Railway deployment behavior
+- **[DEPLOYMENT_NOT_TRIGGERING_FIX.md](DEPLOYMENT_NOT_TRIGGERING_FIX.md)** — Troubleshooting deployment issues
+
+---
+
 ## 🏗️ Technical Highlights
 
 This project demonstrates:
@@ -266,7 +327,9 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 <div align="center">
 
-[Live Demo](https://langgraph-real-time-ai-search-engin-three.vercel.app/)
+
+
+[Live Demo](https://langgraph-real-time-ai-search-engin.vercel.app/)
 
 Made with ❤️ and ☕ by [Derril Filemon](https://github.com/derril-tech)
 
