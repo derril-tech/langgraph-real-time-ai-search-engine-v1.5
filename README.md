@@ -1,8 +1,6 @@
 # 🔍 Real-Time AI Search Engine
 **Powered by LangGraph + OpenAI + RAG**
 
-🌐 **[View Live Application](https://langgraph-real-time-ai-search-engin.vercel.app/)**
-
 > **Ask anything. Get a cited answer—fast.** A production-grade, Perplexity-style research assistant that combines real-time web retrieval, intelligent source ranking, and streaming AI synthesis with inline citations. ⚡
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
