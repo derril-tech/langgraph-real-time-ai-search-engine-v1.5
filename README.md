@@ -326,9 +326,6 @@ MIT License — see [LICENSE](LICENSE) for details.
 <div align="center">
 
 
-
-[Live Demo](https://langgraph-real-time-ai-search-engin.vercel.app/)
-
 Made with ❤️ and ☕ by [Derril Filemon](https://github.com/derril-tech)
 
 </div>
